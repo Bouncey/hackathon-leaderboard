@@ -42,6 +42,10 @@ const TeamSchema = new mongoose.Schema({
       },
       message: props => `${props.value} is not a valid build status`
     }
+  },
+  sponsorApis: {
+    type: Object,
+    default: {}
   }
 });
 

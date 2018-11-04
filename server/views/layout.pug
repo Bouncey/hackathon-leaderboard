@@ -170,12 +170,19 @@ html(lang='en')
             var teamSite = createTeamForm.querySelector('#team-site').value;
             var teamCollaborators = createTeamForm.querySelector('#team-collab').value;
             var teamIsOnline = createTeamForm.querySelector('#isOnLine').checked;
+            var sponsorMap = ['Clarifai', 'Fauna', 'Formspree', 'Hasura', 'Pilon']
+              .reduce(function(map, sponsor) {
+                const checked = document.getElementById(sponsor).checked;
+                map[sponsor] = checked;
+                return map;
+              }, {})
             var team = {
               name: teamName,
               collaborators: teamCollaborators.split(',').map(function(str) { return str.trim(); }).filter(function(item, pos,self) { return self.indexOf(item) == pos; }),
               githubRepository: teamRepo,
               siteUrl: teamSite,
-              isOnlineHackathon: teamIsOnline
+              isOnlineHackathon: teamIsOnline,
+              sponsorApis: sponsorMap
             }
             return axios.post(axiosurl, team).then(function(response) {
               var status = response.status;

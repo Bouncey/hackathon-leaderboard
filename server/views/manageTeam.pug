@@ -30,13 +30,38 @@ block content
             small#team-collab-help.form-text.text-muted A comma separated list of Github usernames
 
           .form-group.form-check
-            legend Which hackathon are you participating in?
+            legend
+              strong Which hackathon are you participating in?
             .col
               input#isOnLine(type="radio", value="Online Only", v-model="picked",  name="isOnlineHackathon", checked= team.isOnlineHackathon, aria-checked= team.isOnlineHackathon, required)
               label(for="isOnLine") The online hackathon
             .col
               input(type="radio", id="inPerson", value="In-person", v-model="picked", name="isOnlineHackathon", checked= !team.isOnlineHackathon, aria-checked= !team.isOnlineHackathon, required)
               label(for="inPerson") The in-person hackathon in San Francisco
+
+          .form-group.form-check
+              legend
+                strong Which API Sponsors do you intent to use?
+              .col
+                input#Clarifai.form-check-input(type='checkbox', value='', checked= team.sponsorApis.Clarifai, name='Clarifai')
+                label.form-check-label(for='Clarifai') Clarifai -&nbsp;
+                  a(href='https://clarifai.com', target='_blank', rel="noopener noreferrer") clarifai.com
+              .col
+                input#Fauna.form-check-input(type='checkbox', value='', checked= team.sponsorApis.Faunai, name='Faunai')
+                label.form-check-label(for='Fauna') Fauna -&nbsp;
+                  a(href='https://fauna.com/', target='_blank', rel="noopener noreferrer") fauna.com
+              .col
+                input#Formspree.form-check-input(type='checkbox', value='', checked= team.sponsorApis.Formspree, name='Formspree')
+                label.form-check-label(for='Formspree') Formspree -&nbsp;
+                  a(href='https://formspree.io/', target='_blank', rel="noopener noreferrer") formspree.io
+              .col
+                input#Hasura.form-check-input(type='checkbox', value='', checked= team.sponsorApis.Hasura, name='Hasura')
+                label.form-check-label(for='Hasura') Hasura -&nbsp;
+                  a(href='https://hasura.io/', target='_blank', rel="noopener noreferrer") hasura.io
+              .col
+                input#Pilon.form-check-input(type='checkbox', value='', checked= team.sponsorApis.Pilon, name='Pilon')
+                label.form-check-label(for='Pilon') Pilon -&nbsp;
+                  a(href='https://pilon.io/', target='_blank', rel="noopener noreferrer") pilon.io
 
           .form-group.row
             .col
